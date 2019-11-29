@@ -1,0 +1,117 @@
+<div style="margin-top: 40px;">
+<div class='app'>
+  <div class='app-calendar'>
+    <full-calendar #calendar defaultView="dayGridMonth" [header]="{
+          left: 'prev,next,today',
+          center: 'title',
+          right: 'dayGridMonth, timeGridWeek, timeGridDay, listWeek'
+        }" [plugins]="calendarPlugins" [weekends]="calendarWeekends" [events]="calendarEvents"
+      (dateClick)="handleDateClick($event)" (eventClick)="handleEventClick($event)" deepChangeDetection="true"
+      timezone="India/Kolkata">
+    </full-calendar>
+  </div>
+</div>
+
+<div class="tips">
+  <ul>
+    <li>
+      <h4>{{'calendar.h4-22'| translate}}</h4>
+    </li>
+    <ol>
+      <li>{{'calendar.li_25'| translate}} <strong>{{'calendar.strong_25'| translate}}</strong>.</li>
+      <li>{{'calendar.li_26'| translate}}<strong>{{'calendar.strong_26'| translate}}</strong>.</li>
+      <li>{{'calendar.li_27'| translate}} <strong>(Month, Week, Day)</strong>{{'calendar.strong_27'| translate}}.</li>
+    </ol>
+  </ul>
+</div>
+
+<div class="hiddenElements">
+
+  <!-- Hidden Button to Open the Modal -->
+  <button type="button" id="addEvent" data-toggle="modal" data-target="#add" hidden></button>
+  <button type="button" id="editEvent" data-toggle="modal" data-target="#edit" hidden></button>
+
+  <!-- Enter Event Details Modal -->
+  <div class="modal fade" id="add">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header" id="modalHeader">
+          <h4 class="modal-title">{{'calendar.h4-43'| translate}}</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+          <form class="text-center border p-5">
+            <h5>{{'calendar.h5-48'| translate}} : {{ dispDate }}</h5><br>
+            <textarea type="text" rows="5" class="form-control" placeholder="{{'calendar.placeholder_49'| translate}}" #crTITLE></textarea>
+            <small class="form-text text-muted mb-4">
+              {{'calendar.small_51'| translate}}
+            </small>
+            <div class="alert alert-warning" id="pastEventErr">
+              Can't add Events in Past
+            </div>
+            <button type="button" class="btn btn-primary form-control" id="modalBtn" (click)='addEvent(crTITLE.value)'
+              data-dismiss="modal">{{'calendar.button_54'| translate}}
+              </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Edit Event Details Modal -->
+  <div class="modal fade" id="edit">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header" id="modalHeader">
+          <h4 class="modal-title">{{'calendar.h4-67'| translate}}</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+          <form class="text-center border p-5">
+
+
+            <textarea type="text" rows="5" class="form-control mb-4" #crTITLE2 placeholder="{{'calendar.placeholder_74'| translate}}"
+              [value]=crTitle></textarea>
+
+            <div class="form-row">
+              <div class="col">
+                <button type="button" class="btn btn-danger form-control " id="deleteBtn" data-toggle="modal"
+                  data-dismiss="modal" data-target="#delete">{{'calendar.button_80'| translate}}</button>
+              </div>
+              <div class="col">
+                <button type="button" class="btn btn-warning form-control" id="saveBtn" data-dismiss="modal"
+                  (click)='saveEvent(crTITLE2.value)'>{{'calendar.button_84'| translate}}
+                  </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Confirm Deletion Modal -->
+  <div id="deleteConfirmationModal" class="modal fade" id="delete">
+    <div class="modal-dialog modal-confirm" id="deleteModal">
+      <div class="modal-content" id="deleteModalContent">
+        <div class="modal-header" id="deleteModalHeader">
+          <div class="icon-box" id="deleteIcon">
+            <i class="fa fa-times" aria-hidden="true"></i>
+          </div>
+          <h4 class="modal-title">{{'calendar.h4-103'| translate}}</h4>
+        </div>
+        <div class="modal-body">
+          <p>{{'calendar.p_106'| translate}}.</p>
+        </div>
+        <div class="modal-footer" id="deleteModalFooter">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal" id="deleteBtnInfo">{{'calendar.button_110'| translate}}</button>
+          <button type="button" class="btn btn-danger" data-dismiss="modal" (click)='deleteEvent()'
+            id="deleteBtnDanger">{{'calendar.button_111'| translate}}</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</div>

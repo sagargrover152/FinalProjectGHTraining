@@ -1,0 +1,15 @@
+com\ibm\bean\ManagerDetails.class
+com\ibm\repository\UserRepositoryProject.class
+com\ibm\RestConfig.class
+com\ibm\bean\EmployeeDetails.class
+com\ibm\bean\LoginDetails.class
+com\ibm\repository\UserRepositoryEmployee.class
+com\ibm\service\EmployeeService.class
+com\ibm\controller\UserController.class
+com\ibm\bean\ProjectDetails.class
+com\ibm\repository\UserRepositoryManager.class
+com\ibm\service\LoginService.class
+com\ibm\SearchTryApplication.class
+com\ibm\service\ProjectService.class
+com\ibm\repository\UserRepositoryLogin.class
+com\ibm\service\ManagerService.class

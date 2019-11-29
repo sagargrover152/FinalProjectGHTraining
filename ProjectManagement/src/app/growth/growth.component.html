@@ -1,0 +1,64 @@
+<div class="panel panel-default" style="margin-top: 50px;">
+    <div class="panel-body">
+        <h4>{{'growth.h4-3'| translate}}</h4>
+        <a routerLink="/reports">{{'growth.a_4'| translate}}</a>
+    </div>
+</div>
+
+<div class="jumbotron" style="background-color: white;">
+
+    <div class="row">
+        <div class="col-sm-8">
+            <div class="jumbotron jumbotron-fluid" style="background-color: white;">
+                <div>
+                    <canvas id="canvas" height="10" width="30"></canvas>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-sm-4">
+
+            <br>
+            <br>
+            <br>
+            <span style="font-size: 20px;"> {{'growth.span_24'| translate}}</span>
+            <hr>
+            <small>{{'growth.span_26'| translate}}</small>
+            <div class="progress">
+                <div class="progress-bar bg-danger " style="width:100%"></div>
+            </div>
+            <small>{{'growth.span_30'| translate}}</small>
+            <div class="progress">
+                <div class="progress-bar bg-success " style="width:100%"></div>
+            </div>
+            <small>{{'growth.span_34'| translate}}</small>
+            <div class="progress">
+                <div class="progress-bar bg-info " style="width:60%"></div>
+            </div>
+            <small>{{'growth.span_38'| translate}}</small>
+            <div class="progress">
+                <div class="progress-bar bg-warning " style="width:0%"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<div class="row" style="margin-bottom:50px">
+
+    <div class="col-sm-6">
+        <div>
+            <canvas id="piechart" height="15" width="30"></canvas>
+        </div>
+
+    </div>
+
+    <div class="col-sm-6">
+
+        <div>
+            <canvas id="barchart" height="10" width="20"></canvas>
+        </div>
+    </div>
+</div>
